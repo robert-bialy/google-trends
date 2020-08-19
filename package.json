@@ -1,0 +1,11 @@
+{
+    "name": "google-trends",
+    "version": "0.0.1",
+    "description": "API for google trends",
+    "main": "main.js",
+    "author": "Robert",
+    "dependencies": {
+        "express": "^4.17.1",
+        "google-trends-api": "^4.9.0"
+    }
+}
