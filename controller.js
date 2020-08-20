@@ -2,28 +2,32 @@ const express = require('express');
 const service = require('./google-trends')
 var app = express();
 
-app.get('/dailyTrends', function(request, response) {
-    service.getDailyTrends(request.query)
+function handleExceptionCall(promise, response) {
+    promise
     .then(
-        (res) => response.status(200).json(res),
-        (error) => response.status(500).json(error))
+        (res) => {
+            response.status(200).send(JSON.parse(res));
+        })
     .catch(
-        (error) => response.status(500).json(error)
-    );
+        (res) => {
+            response.status(500).send(JSON.stringify(res.message));
+        });
+}
+
+app.get('/dailyTrends', function(request, response) {
+    handleExceptionCall(service.getDailyTrends(request.query), response);
 })
 
 app.get('/interest', function(request, response) {
-    service.getDailyTrends(request.query)
-    .then(
-        (res) => response.status(200).json(res),
-        (error) => response.status(500).json(error))
-    .catch(
-        (error) => response.status(500).json(error)
-    );
+    handleExceptionCall(service.interestOverTime(request.query), response);
+})
+
+app.get('/realTimeTreands', function (request, response) {
+    handleExceptionCall(service.realTimeTrends(request.query), response);
 })
 
 app.get('/', function (req, res) {
     res.send('hello world')
 })
 
-var server = app.listen(8081, () => console.log("Api up and running!"));
+app.listen(8081, "localhost");
