@@ -2,7 +2,8 @@
 
 ## 1. Links
 
-Based on: https://www.npmjs.com/package/google-trends-api
+Based on: https://www.npmjs.com/package/google-trends-api/
+Hosted on: https://google-trends-rest-api.herokuapp.com/
 
 ## 2. Project details
 
@@ -12,3 +13,7 @@ Simple REST api based on npm google trends api. It contains 3 endpoints:
  - /realTimeTreands - Realtime Search Trends highlight stories that are trending across Google surfaces within the last 24 hours, and are updated in realtime. 
 
 Queries are based on https://www.npmjs.com/package/google-trends-api.
+
+## 3. Samples
+
+https://google-trends-rest-api.herokuapp.com/dailyTrends?geo=US
