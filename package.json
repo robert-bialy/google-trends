@@ -1,11 +1,14 @@
 {
     "name": "google-trends",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "description": "API for google trends",
     "main": "controller.js",
     "author": "Robert Bialy <bialyrobert12@gmail.com>",
     "dependencies": {
         "express": "^4.17.1",
         "google-trends-api": "^4.9.0"
+    },
+    "scripts": {
+        "start": "node controller.js"
     }
 }
