@@ -7,4 +7,4 @@ COPY . .
 
 EXPOSE 8080
 
-CMD [ "node", "controller.js" ]
+CMD [ "nodemon --exec babel-node server.js" ]

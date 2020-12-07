@@ -2,13 +2,19 @@
     "name": "google-trends",
     "version": "0.0.3",
     "description": "API for google trends",
-    "main": "controller.js",
+    "main": "server.js",
     "author": "Robert Bialy <bialyrobert12@gmail.com>",
     "dependencies": {
         "express": "^4.17.1",
         "google-trends-api": "^4.9.0"
     },
     "scripts": {
-        "start": "node controller.js"
+        "start": "nodemon --exec babel-node server.js",
+        "dev": "nodemon --exec babel-node --presets babel-preset-env ./server.js"
+    },
+    "devDependencies": {
+        "babel-cli": "^6.26.0",
+        "babel-preset-env": "^1.7.0",
+        "nodemon": "^2.0.6"
     }
 }
