@@ -6,12 +6,13 @@
     "author": "Robert Bialy <bialyrobert12@gmail.com>",
     "dependencies": {
         "body-parser": "^1.18.3",
+        "dotenv": "^8.2.0",
         "express": "^4.17.1",
-        "express-jwt": "^6.0.0",
-        "google-trends-api": "^4.9.0"
+        "google-trends-api": "^4.9.0",
+        "jsonwebtoken": "^8.1.0"
     },
     "scripts": {
-        "start": "nodemon --exec babel-node server.js",
+        "start": "npm run start",
         "dev": "nodemon --exec babel-node --presets babel-preset-env ./server.js"
     },
     "devDependencies": {
