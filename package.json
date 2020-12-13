@@ -1,6 +1,6 @@
 {
     "name": "google-trends",
-    "version": "0.0.3",
+    "version": "0.1.0",
     "description": "API for google trends",
     "main": "server.js",
     "author": "Robert Bialy <bialyrobert12@gmail.com>",
@@ -12,7 +12,7 @@
         "jsonwebtoken": "^8.1.0"
     },
     "scripts": {
-        "start": "npm run start",
+        "start": "nodemon --exec babel-node server.js",
         "dev": "nodemon --exec babel-node --presets babel-preset-env ./server.js"
     },
     "devDependencies": {
