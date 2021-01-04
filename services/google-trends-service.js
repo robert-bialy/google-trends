@@ -1,4 +1,5 @@
 const googleTrends = require('google-trends-api');
+const mapper = require('./mapper')
 
 var getDailyTrends = async function getDailyTrends(q) {
     let query = {
@@ -8,8 +9,10 @@ var getDailyTrends = async function getDailyTrends(q) {
         hl: q.hl
     };
     
-    var response = googleTrends.dailyTrends(query);
-    return response;
+    var response = await googleTrends.dailyTrends(query);
+    var json = JSON.parse(response);
+
+    return mapper.mapGetDailyTrends(json.default.trendingSearchesDays);
 }
 
 var interestOverTime = async function interestOverTime(q) {
@@ -24,8 +27,10 @@ var interestOverTime = async function interestOverTime(q) {
         granularTimeResolution: q.granularTimeResolution
     };
 
-    var response = googleTrends.interestOverTime(query);
-    return response;
+    var response = await googleTrends.interestOverTime(query);
+    var json = JSON.parse(response);
+
+    return mapper.mapInterestOverTime(json.default.timelineData);
 }
 
 var realTimeTrends = async function realTimeTrends(q) {
@@ -36,8 +41,10 @@ var realTimeTrends = async function realTimeTrends(q) {
         category: q.category // All : 'all' Entertainment: 'e' Business : 'b' Science/Tech : 't' Health : 'm' Sports : 's' Top Stories : 'h'
     };
 
-    var response = googleTrends.realTimeTrends(query);
-    return response;
+    var response = await googleTrends.realTimeTrends(query);
+    var json = JSON.parse(response);
+
+    return json;
 }
 
 module.exports = {

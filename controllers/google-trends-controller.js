@@ -6,7 +6,7 @@ class GoogleTrendsController {
         service.getDailyTrends(request.query)
         .then(
             (res) => {
-                response.status(200).send(JSON.parse(res));
+                response.status(200).send(res);
             })
         .catch(
             (res) => {
@@ -18,7 +18,7 @@ class GoogleTrendsController {
         service.interestOverTime(request.query)
         .then(
             (res) => {
-                response.status(200).send(JSON.parse(res));
+                response.status(200).send(res);
             })
         .catch(
             (res) => {
